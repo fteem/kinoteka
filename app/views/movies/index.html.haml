@@ -2,4 +2,4 @@
 %section
   -@movies.each do |movie|
     %p
-      =link_to movie.name, movie
+      =link_to "#{movie.name} (#{movie.year})", movie

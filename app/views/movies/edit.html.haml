@@ -1,14 +1,13 @@
-%h3 Внесување на нов филм
-=form_for @movie do |f|
+=form_for edit_movie_path(@movie) do |f|
   %p
     = f.label :name, "Име на филмот"
-    = f.text_field :name
+    = f.text_field :name, value: @movie.name
   %p
     = f.label :year, "Година"
-    = f.text_field :year
+    = f.text_field :year, value: @movie.year
   %p
     = f.label :plot, "Кратка содржина"
-    = f.text_area :plot
+    = f.text_area :plot, value: @movie.plot, rows: 25, cols: 60
   %p
     = f.label :director, "Режисер"
     = f.text_field :director
@@ -16,5 +15,5 @@
     = f.label :length_minutes, "Времетраење (во минути)"
     = f.text_field :length_minutes
   %p
-    = f.submit "Внеси"
+    = f.submit "Промени"
 

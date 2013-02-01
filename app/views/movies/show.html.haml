@@ -1,25 +1,23 @@
+%h3
+  =@movie.name
 %section
   %p
-    Movie name:
-  %p
-    =@movie.name
-%section
-  %p
-    Movie year:
-  %p
+    Година:
     =@movie.year
 %section
   %p
-    Short movie description:
-  %p
+    Кратка содржина:
     =@movie.plot
 %section
   %p
-    Movie director:
+    Жанр:
+    -@movie.genres.each do |g|
+      =g.name
+%section
   %p
+    Режисер:
     =@movie.director
 %section
   %p
-    Movie length:
-  %p
-    ="#{@movie.length_minutes} mins"
+    Времетраење:
+    ="#{@movie.length_minutes} минути"
