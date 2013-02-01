@@ -1,0 +1,19 @@
+=form_for @movie do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :year
+    = f.text_field :year
+  %p
+    = f.label :plot
+    = f.text_area :plot
+  %p
+    = f.label :director
+    = f.text_field :director
+  %p
+    = f.label :length_minutes
+    = f.text_field :length_minutes
+  %p
+    = f.submit "Create movie"
+

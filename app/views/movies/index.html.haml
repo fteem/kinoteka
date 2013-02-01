@@ -1,0 +1,5 @@
+%h2 Листа на филмови
+%section
+  -@movies.each do |movie|
+    %p
+      =link_to movie.name, movie

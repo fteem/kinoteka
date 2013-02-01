@@ -5,6 +5,7 @@ class Theatre
 
   # Attributes
   field :seats_count, type: Integer
+  field :name,        type: String
 
   # Relationships
   has_many :projections
