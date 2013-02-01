@@ -1,5 +1,6 @@
 class Projection
   include Mongoid::Document
+  include Mongoid::Timestamps
   attr_accessible :projection_start
 
   # Attributes

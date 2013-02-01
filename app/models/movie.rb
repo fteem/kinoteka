@@ -1,10 +1,12 @@
 class Movie
   include Mongoid::Document
-  attr_accessible :name, :year, :plot, :director
+  include Mongoid::Timestamps
+  attr_accessible :name, :year, :plot, :director, :length_minutes
 
   VALID_RATINGS = ['Unrated', 'G', 'PG', 'PG-13', 'R', 'NC-17']
 
   # Attributes
+  field :_id,            type: String, default: ->{ name.to_s.parameterize }
   field :name,           type: String
   field :year,           type: Integer
   field :plot,           type: String
@@ -12,11 +14,11 @@ class Movie
   field :length_minutes, type: Integer
 
   # Relationships
-  has_many :theatres, through: :projections
+  has_many :projections
   has_and_belongs_to_many :genres
 
   # Validations
-  validates :name, presence: true, length: { between: 5..256 }
+  validates :name, presence: true, length: { within: 5..256 }
   validates :year, presence: true, numericality: { only_integer: true }
   validates :length_minutes, presence: true
   validate  :movie_length
