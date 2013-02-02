@@ -12,7 +12,7 @@
   %p
     Жанр:
     -@movie.genres.each do |g|
-      =g.name
+      =link_to g.name_cyr, genre_path(g)
 %section
   %p
     Режисер:

@@ -1,0 +1,10 @@
+%h3 Нов жанр
+=form_for @genre do |f|
+  %p
+    =f.label :name_cyr, "Кирилично име на жанрот"
+    =f.text_field :name_cyr
+  %p
+    =f.label :name_eng, "Латинично име на жанрот"
+    =f.text_field :name_eng
+  %p
+    =f.submit "Внеси"

@@ -1,6 +1,7 @@
 Kinoteka::Application.routes.draw do
   root :to => 'home#index'
   resources :movies
+  resources :genres
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

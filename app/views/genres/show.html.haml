@@ -1,0 +1,9 @@
+%h1
+  = "Филмови од жанр: #{@genre.name_cyr}"
+
+%section
+  =link_to "#{@movies.name} (#{@movies.year})", @movies
+
+  -# -@movies.each do |movie|
+  -#   %p
+  -#     =link_to "#{movie.name} (#{movie.year})", movie
