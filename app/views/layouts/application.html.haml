@@ -35,10 +35,15 @@
             %span.icon-bar
           %a.brand{:href => "#{root_url}"} Кино
           .container-fluid.nav-collapse
-            %ul.nav
-              %li= link_to "Филмови", '/movies'
-              %li= link_to "Кино сали", "#"
-              %li= link_to "Проекции", "/projections"
+            %ul.nav.nav-tabs
+              %li.dropdown
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Филмови<b class="caret"></b></a>
+                %ul.dropdown-menu
+                  %li= link_to "Листа на филмови", movies_path
+                  %li= link_to "Внеси нов филм", new_movie_path
+                %li= link_to "Кино сали", "#"
+                %li= link_to "Проекции", "/projections"
+
           / /.nav-collapse
     .container-fluid
       .row-fluid
