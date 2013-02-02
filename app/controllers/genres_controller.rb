@@ -1,3 +1,4 @@
+# encoding: utf-8
 class GenresController < ApplicationController
 
   def show

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class MoviesController < ApplicationController
 
   def index
@@ -15,16 +16,27 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(params[:movie])
     if @movie.save
-      flash[:notice] = "The movie \"#{@movie.name}\" has been created."
+      flash[:notice] = "Филмот \"#{@movie.name}\" е внесен."
       redirect_to  movie_url(@movie)
     else
-      flash[:error] = "An error occured, the movie wasn't saved."
-      render 'new'
+      flash[:error] = "Настана грешка, внесувањето е неуспешно."
+      render :new
     end
   end
 
   def edit
     @movie = Movie.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    if @movie.update_attributes(params[:movie])
+      flash[:notice] = "Филмот \"#{@movie.name}\" е променет."
+      redirect_to  movie_url(@movie)
+    else
+      flash[:error] = "Настана грешка, промената не е успешна."
+      render :edit
+    end
   end
 
 end
