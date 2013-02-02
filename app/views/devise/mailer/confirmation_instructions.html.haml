@@ -1,4 +1,4 @@
 %p
-  Welcome #{@resource.email}!
-%p You can confirm your account email through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  Здраво #{@resource.email}!
+%p Можеш да го потврдиш твојот email на сметката со линкот подолу:
+%p= link_to 'Потврдувам', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)

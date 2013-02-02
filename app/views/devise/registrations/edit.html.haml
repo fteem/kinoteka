@@ -1,5 +1,5 @@
 %h2
-  Edit #{resource_name.to_s.humanize}
+  Промени #{resource_name.to_s.humanize}
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
   %div
@@ -7,21 +7,12 @@
     %br/
     = f.email_field :email
   %div
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, :autocomplete => "off"
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %div
     = f.label :current_password
-    %i (we need your current password to confirm your changes)
+    %i (вашата моментална лозика ни е потребна за потврда на промените)
     %br/
     = f.password_field :current_password
-  %div= f.submit "Update"
-%h3 Cancel my account
+  %div= f.submit "Промени"
+%h3 Избришете ја мојата сметка
 %p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.
-= link_to "Back", :back
+  Се чувствувате несреќни или незадоволни? #{link_to "Избришете ја мојата сметка!", registration_path(resource_name), :data => { :confirm => "Дали сте сигурни?" }, :method => :delete}.
+= link_to "Назад", :back
