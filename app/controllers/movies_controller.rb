@@ -1,5 +1,6 @@
 # encoding: utf-8
 class MoviesController < ApplicationController
+  before_filter :authenticate_admin!, except: [:index, :show]
 
   def index
     @movies = Movie.all
@@ -32,7 +33,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     if @movie.update_attributes(params[:movie])
       flash[:notice] = "Филмот \"#{@movie.name}\" е променет."
-      redirect_to  movie_url(@movie)
+      redirect_to movie_url(@movie)
     else
       flash[:error] = "Настана грешка, промената не е успешна."
       render :edit
