@@ -81,7 +81,6 @@ production:
   sessions:
     # Defines the default session. (required)
     default:
-      database: kinoteka_production
       uri: <%= ENV['MONGOLAB_URI'] %>
       options:
         # Change whether the session persists in safe mode by default.
