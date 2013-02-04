@@ -8,6 +8,7 @@ gem 'mongoid'
 gem 'haml-rails'
 gem 'devise'
 gem 'newrelic_rpm'
+gem 'bson_ext'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
