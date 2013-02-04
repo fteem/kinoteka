@@ -2,7 +2,6 @@ production:
   sessions:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
-      database: kinoteka_development
       options:
         skip_version_check: true
         safe: true
