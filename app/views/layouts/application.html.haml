@@ -40,9 +40,13 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Филмови<b class="caret"></b></a>
                 %ul.dropdown-menu
                   %li= link_to "Листа на филмови", movies_path
-                  %li= link_to "Внеси нов филм", new_movie_path
+                  -if admin_signed_in?
+                    %li= link_to "Внеси нов филм", new_movie_path
+                  %li
+                    = link_to "     Пребарaj", '#', class: 'icon-search'
                 %li= link_to "Кино сали", "#"
                 %li= link_to "Проекции", "/projections"
+                %li.pull-right= link_to "Најава", new_admin_session_path
 
           / /.nav-collapse
     .container-fluid

@@ -1,6 +1,6 @@
 # encoding: utf-8
 class MoviesController < ApplicationController
-  # before_filter :authenticate_admin!, except: [:index, :show]
+  before_filter :authenticate_admin!, except: [:index, :show]
 
   def index
     @movies = Movie.all
