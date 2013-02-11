@@ -1,0 +1,20 @@
+%p
+  = f.label :name, "Име на филмот"
+  = f.text_field :name
+%p
+  = f.label :year, "Година"
+  = f.text_field :year
+%p
+  = f.label :plot, "Кратка содржина"
+  = f.text_area :plot
+%p
+  = f.label :genres, "Одбери жанри"
+  - Genre.each do |g|
+    = g.name_cyr
+    = check_box_tag 'movie[genre_ids][]', g.name_eng
+%p
+  = f.label :director, "Режисер"
+  = f.text_field :director
+%p
+  = f.label :length_minutes, "Времетраење (во минути)"
+  = f.text_field :length_minutes

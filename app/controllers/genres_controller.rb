@@ -2,11 +2,8 @@
 class GenresController < ApplicationController
 
   def show
-    @movies = Movie.find_by(genre_ids: params[:id])
+    @movies = Movie.where(genre_ids: params[:id])
     @genre  = Genre.find(params[:id])
-  end
-
-  def index
   end
 
   def new
@@ -18,7 +15,7 @@ class GenresController < ApplicationController
     if @genre.save
       # flash[:notice] = "Жанрот е успешно внесен!".force_encoding("UTF-8")
       flash[:notice] = "Success!"
-      redirect_to genre_path(@genre)
+      redirect_to root_path
     else
       # flash[:error].now  = "Настана грешка!"
       flash[:error].now  = "Error!"
