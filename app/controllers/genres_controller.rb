@@ -13,12 +13,10 @@ class GenresController < ApplicationController
   def create
     @genre = Genre.new(params[:genre])
     if @genre.save
-      # flash[:notice] = "Жанрот е успешно внесен!".force_encoding("UTF-8")
-      flash[:notice] = "Success!"
+      flash[:notice] = "Жанрот е успешно внесен!"
       redirect_to root_path
     else
-      # flash[:error].now  = "Настана грешка!"
-      flash[:error].now  = "Error!"
+      flash[:error].now  = "Настана грешка!"
       render 'new'
     end
   end
