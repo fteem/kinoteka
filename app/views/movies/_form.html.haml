@@ -9,9 +9,14 @@
   = f.text_area :plot
 %p
   = f.label :genres, "Одбери жанри"
+  - cnt = 1
   - Genre.each do |g|
-    = g.name_cyr
-    = check_box_tag 'movie[genre_ids][]', g.name_eng
+    %span
+      = g.name_cyr
+      = check_box_tag 'movie[genre_ids][]', g.name_eng
+    -if cnt % 5 == 0
+      %br
+    -cnt += 1
 %p
   = f.label :director, "Режисер"
   = f.text_field :director

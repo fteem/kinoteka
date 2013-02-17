@@ -1,12 +1,4 @@
 =form_for @theatre do |f|
+  =render 'form', locales: { f: f }
   %p
-    = f.label :name_cyr, "Кирилично име на салата"
-    = f.text_field :name_cyr
-  %p
-    = f.label :name_eng, "Латинично име на салата"
-    = f.text_field :name_eng
-  %p
-    = f.label :seats_count, "Број на седишта"
-    = f.text_field :seats_count
-  %p
-    =f.submit "Внеси"
+    =f.submit "Промени"
