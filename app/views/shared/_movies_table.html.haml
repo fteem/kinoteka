@@ -1,18 +1,14 @@
 %table.table.table-hover.table-bordered
   %thead
     %tr
-      %th
-        Име
-      %th
-        Година
-      %th
-        Кратка содржина
-      %th
-        Жанр
-      %th
-        Режисер
-      %th
-        Времетраење
+      %th Име
+      %th Година
+      %th Кратка содржина
+      %th Жанр
+      %th Режисер
+      %th Времетраење
+      -if admin_signed_in?
+        %th Опции
   %tbody
     -@movies.each do |movie|
       %tr
