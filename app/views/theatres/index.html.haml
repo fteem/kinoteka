@@ -1,0 +1,16 @@
+%table.table.table-hover.table-bordered
+  %thead
+    %tr
+      %th
+        Име на киносала
+      %th
+        Број на седишта
+  %tbody
+    -@theatres.each do |theatre|
+      %tr
+        %td= theatre.name_cyr
+        %td= theatre.seats_count
+        -if admin_signed_in?
+          %td= link_to "Промени", edit_theatre_path(theatre)
+          %td= link_to "Избриши", '#'
+

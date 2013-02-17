@@ -3,7 +3,7 @@ class Genre
   include Mongoid::Timestamps
 
   # Attributes
-  field :_id,  type: String, default: ->{ name_eng.to_s.parameterize }
+  field :_id,      type: String, default: ->{ name_eng.to_s.parameterize }
   field :name_cyr, type: String
   field :name_eng, type: String
 

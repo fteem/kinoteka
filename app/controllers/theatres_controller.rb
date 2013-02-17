@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class TheatresController < ApplicationController
+  before_filter :authenticate_admin!, except: [:index, :show]
 
   def index
     @theatres = Theatre.all
@@ -13,8 +14,10 @@ class TheatresController < ApplicationController
     @theatre = Theatre.new(params[:theatre])
     if @theatre.save
       flash[:notice] = "Новата киносала е внесена!"
+      redirect_to root_path
     else
-      flash[:notice] = "Настана грешка, новата киносала не е внесена!"
+      flash[:error] = "Неуспешнo внесување. Обидете се повторно!"
+      render :new
     end
   end
 
@@ -28,9 +31,13 @@ class TheatresController < ApplicationController
       flash[:notice] = "Податоците се променети"
       redirect_to theatre_url(@theatre)
     else
-      flash[:error] = "Настана грешка, промената не е успешна."
+      flash[:error] = "Неуспешна промена. Обидете се повторно!"
       render :edit
     end
+  end
+
+  def destroy
+    Theatre.find(params[:theatre]).destroy
   end
 
 end
