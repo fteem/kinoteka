@@ -22,11 +22,11 @@ class TheatresController < ApplicationController
   end
 
   def edit
-    @theatre = Theatre.find(params[:theatre])
+    @theatre = Theatre.find(params[:id])
   end
 
   def update
-    @theatre = Theatre.find(params[:theatre])
+    @theatre = Theatre.find(params[:id])
     if @theatre.update_attributes(params[:theatre])
       flash[:notice] = "Податоците се променети"
       redirect_to theatre_url(@theatre)
@@ -37,7 +37,14 @@ class TheatresController < ApplicationController
   end
 
   def destroy
-    Theatre.find(params[:theatre]).destroy
+    @theatre = Theatre.find(params[:id])
+    if @theatre.destroy
+      flash[:notice] = "Киносалата е избришана!"
+      redirect_to root_url
+    else
+      flash[:error] = "Настана грешка, киносалата не е избришана!"
+      render :edit
+    end
   end
 
 end
