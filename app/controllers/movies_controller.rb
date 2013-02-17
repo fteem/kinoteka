@@ -47,4 +47,15 @@ class MoviesController < ApplicationController
     end
   end
 
+  def destroy
+    @movie = Movie.find(params[:id])
+    if @movie.destroy
+      flash[:notice] = "Филмот е успешно избришан!"
+      redirect_to movies_url
+    else
+      flash[:error] = "Филмот не е избришан!"
+      redirect_to movie_url(@movie)
+    end
+  end
+
 end

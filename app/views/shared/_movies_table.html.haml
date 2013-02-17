@@ -20,4 +20,8 @@
             = link_to g.name_cyr, g
         %td= movie.director
         %td= "#{movie.length_minutes} минути"
+        -if admin_signed_in?
+          %td
+            %span= link_to "Промени", edit_movie_path(movie)
+            %span= link_to "Избриши", movie_path(movie), method: 'delete', confirm: "Дали сте сигурни?"
 

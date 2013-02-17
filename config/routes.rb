@@ -5,6 +5,7 @@ Kinoteka::Application.routes.draw do
   resources :movies
   resources :genres
   resources :theatres
+  resources :projections
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
