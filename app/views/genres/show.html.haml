@@ -1,7 +1,4 @@
 %h1
   = "Филмови од жанр: #{@genre.name_cyr}"
 
-%section
-  -@movies.each do |movie|
-    %p
-      =link_to "#{movie.name} (#{movie.year})", movie
+= render 'shared/movies_table', locales: { movies: @movies }

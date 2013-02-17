@@ -1,0 +1,27 @@
+%table.table.table-hover.table-bordered
+  %thead
+    %tr
+      %th
+        Име
+      %th
+        Година
+      %th
+        Кратка содржина
+      %th
+        Жанр
+      %th
+        Режисер
+      %th
+        Времетраење
+  %tbody
+    -@movies.each do |movie|
+      %tr
+        %td= link_to movie.name, movie
+        %td= movie.year
+        %td= movie.plot
+        %td
+          -movie.genres.each do |g|
+            = link_to g.name_cyr, g
+        %td= movie.director
+        %td= "#{movie.length_minutes} минути"
+
