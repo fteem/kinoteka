@@ -12,4 +12,7 @@ class Projection
 
   # Validations
   validates :projection_start, presence: true
+
+  # Scopes
+  scope :upcomming, lambda { where('projection_start <', Time.zone.now) }
 end
