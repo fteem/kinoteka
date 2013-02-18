@@ -1,6 +1,7 @@
 %table.table.table-hover.table-bordered
   %thead
     %tr
+      %th Почеток
       %th Име на филмот
       %th Година
       %th Кратка содржина
@@ -13,6 +14,7 @@
   %tbody
     -@projections.each do |projection|
       %tr
+        %td= projection.projection_start.strftime("%d.%m.%Y  %H:%Mч")
         %td= link_to projection.movie.name, projection.movie
         %td= projection.movie.year
         %td= projection.movie.plot
