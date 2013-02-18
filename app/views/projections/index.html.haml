@@ -1,0 +1,29 @@
+%table.table.table-hover.table-bordered
+  %thead
+    %tr
+      %th Име на филмот
+      %th Година
+      %th Кратка содржина
+      %th Жанр
+      %th Режисер
+      %th Времетраење
+      %th Кино сала
+      -if admin_signed_in?
+        %th Опции
+  %tbody
+    -@projections.each do |projection|
+      %tr
+        %td= link_to projection.movie.name, projection.movie
+        %td= projection.movie.year
+        %td= projection.movie.plot
+        %td
+          -projection.movie.genres.each do |g|
+            = link_to g.name_cyr, g
+        %td= projection.movie.director
+        %td= "#{projection.movie.length_minutes} минути"
+        %td= projection.theatre.name_cyr
+        -# -if admin_signed_in?
+        -#   %td
+        -#     %span= link_to "Промени", edit_movie_path(movie)
+        -#     %span= link_to "Избриши", movie_path(movie), method: 'delete', confirm: "Дали сте сигурни?"
+

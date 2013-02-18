@@ -1,0 +1,12 @@
+=form_for @projection do |f|
+  %p
+    =f.label :movie, "Одберете филм"
+    =f.collection_select :movie_id, Movie.all, :id, :name
+  %p
+    =f.label :theatre, "Одберете кино сала"
+    =f.collection_select :theatre_id, Theatre.all, :id, :name_cyr
+  %p
+    =f.label :projection_start, "Старт на проекцијата"
+    =f.text_field :projection_start
+  %p
+    =f.submit "Внеси"

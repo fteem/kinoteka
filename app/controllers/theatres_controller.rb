@@ -29,7 +29,7 @@ class TheatresController < ApplicationController
     @theatre = Theatre.find(params[:id])
     if @theatre.update_attributes(params[:theatre])
       flash[:notice] = "Податоците се променети"
-      redirect_to theatre_url(@theatre)
+      redirect_to theatres_url
     else
       flash[:error] = "Неуспешна промена. Обидете се повторно!"
       render :edit
