@@ -47,8 +47,9 @@
                 %li.dropdown
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Администрација<b class="caret"></b></a>
                   %ul.dropdown-menu
-                    %li= link_to "Внеси нов филм", new_movie_path
-                    %li= link_to "Внеси нова кино сала", new_theatre_path
+                    %li= link_to "Нов филм", new_movie_path
+                    %li= link_to "Нова кино сала", new_theatre_path
+                    %li= link_to "Нова проекција", new_projection_path
               -if admin_signed_in?
                 %li.pull-right= link_to "Одјави се", destroy_admin_session_path, method: 'delete'
               -else
