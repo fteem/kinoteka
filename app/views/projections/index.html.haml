@@ -14,7 +14,7 @@
   %tbody
     -@projections.each do |projection|
       %tr
-        %td= projection.projection_start.strftime("%d.%m.%Y  %H:%Mч")
+        %td.wide-cell= "#{projection.projection_date} \n #{projection.projection_time} часот"
         %td= link_to projection.movie.name, projection.movie
         %td= projection.movie.year
         %td= projection.movie.plot
@@ -28,4 +28,3 @@
           %td
             %span= link_to "Промени", edit_movie_path(projection.movie)
             %span= link_to "Избриши", movie_path(projection.movie), method: 'delete', confirm: "Дали сте сигурни?"
-
