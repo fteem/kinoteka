@@ -29,4 +29,19 @@ class ProjectionsController < ApplicationController
     end
   end
 
+  def edit
+    @projection = Projection.find(params[:id])
+  end
+
+  def update
+    @projection = Projection.find(params[:id])
+    if @projection.update_attributes(params[:projection])
+      flash[:notice] = "Проекцијата е успешно променета!"
+      redirect_to projections_url
+    else
+      flash[:notice] = "Проекцијата е успешно променета!"
+      render :edit
+    end
+  end
+
 end

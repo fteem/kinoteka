@@ -26,5 +26,5 @@
         %td= projection.theatre.name_cyr
         -if admin_signed_in?
           %td
-            %span= link_to "Промени", edit_movie_path(projection.movie)
-            %span= link_to "Избриши", movie_path(projection.movie), method: 'delete', confirm: "Дали сте сигурни?"
+            %span= link_to "Промени", edit_projection_path(projection)
+            %span= link_to "Избриши", projection_path(projection), method: 'delete', confirm: "Дали сте сигурни?"
