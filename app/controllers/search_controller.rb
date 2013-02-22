@@ -4,6 +4,7 @@ class SearchController < ApplicationController
   end
 
   def lookup
-
+    keyword = params[:keyword]
+    @movies = Movie.where(name: keyword)
   end
 end

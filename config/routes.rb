@@ -7,7 +7,7 @@ Kinoteka::Application.routes.draw do
   resources :theatres
   resources :projections
 
-  match 'search/index' => 'search#index'
+  match 'search' => 'search#index'
   match 'search/lookup' => 'search#lookup'
 
   # The priority is based upon order of creation:
