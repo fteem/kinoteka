@@ -21,5 +21,4 @@ class GenresController < ApplicationController
     end
   end
 
-
 end
